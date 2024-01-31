@@ -5,14 +5,15 @@ from sc2.main import run_game
 from sc2.player import Bot, Computer
 from sc2.position import Point2, Point3
 
+
 class MineralPocket(BotAI):
 
     def __init__(self):
         pass       
 
-    async def on_start(self):  
+    async def on_start(self):
 
-            await self.client.debug_show_map()
+        await self.client.debug_show_map()
           
     async def on_step(self, iteration):
 
