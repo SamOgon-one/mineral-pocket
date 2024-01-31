@@ -1,8 +1,3 @@
-import os
-import sys
-
-sys.path.append(os.path.join(os.path.dirname(__file__), "../.."))
-
 from sc2 import maps
 from sc2.bot_ai import BotAI
 from sc2.data import Difficulty, Race
@@ -10,8 +5,7 @@ from sc2.main import run_game
 from sc2.player import Bot, Computer
 from sc2.position import Point2, Point3
 
-
-class mineral_pockets(BotAI):
+class MineralPocket(BotAI):
 
     def __init__(self):
         pass       
@@ -44,11 +38,10 @@ class mineral_pockets(BotAI):
             [self.client.debug_box2_out(pos=mineral.position3d, half_vertex_length=0.45, color=Point3((255, 255, 50))) for mineral in self.minerals_with_pocket] # yellow
 
 
-
 def main():
     run_game(
         maps.get("GlitteringAshesAIE"),
-        [Bot(Race.Terran, mineral_pockets(), name="mineral_pockets"),
+        [Bot(Race.Terran, MineralPocket(), name="mineral_pockets"),
          Computer(Race.Terran, Difficulty.Easy)],
      
         realtime=False,
